@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VivaBarNails.Data;
 
@@ -11,9 +12,10 @@ using VivaBarNails.Data;
 namespace VivaBarNails.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220810133404_ClientDb")]
+    partial class ClientDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,10 +241,9 @@ namespace VivaBarNails.Data.Migrations
                     b.Property<int?>("NailMasterId")
                         .HasColumnType("int");
 
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
+                    b.Property<int>("PhoneNumber")
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("VisitDate")
                         .HasColumnType("datetime2");
