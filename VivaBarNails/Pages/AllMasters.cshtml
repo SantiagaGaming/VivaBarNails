@@ -1,14 +1,18 @@
 ﻿@page
 @model AllMastersModel
 
-<h1>Наши мастера</h1>
- <div class="col-md-4">
+<h4>Наши мастера</h4>
+
+     <div class="well text-center">
+    <div class="row">
 @foreach (var item in @Model.Masters)
 {
+    <div class="col-md-4">
       <h5 class="card-title">@item.MasterName</h5>
-       <img class="card-img-top" src="@item.Picture" alt="Card image cap">
-
+       <img class="card-img-top masterImage" src="@item.Picture" alt="Card image cap">
+       </div>
 }
+</div>
 </div>
 
 
