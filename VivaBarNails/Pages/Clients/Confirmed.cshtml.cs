@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace VivaBarNails.Pages.NailOrder
+namespace VivaBarNails.Pages.Clients
 {
     public class ConfirmedModel : PageModel
     {

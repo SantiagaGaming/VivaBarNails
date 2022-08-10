@@ -1,0 +1,46 @@
+﻿
+@page
+@model VivaBarNails.Pages.NailOrders.InWorkModel
+@{
+}
+<h3>Записи</h3>
+<hr />
+<table class="table" >
+    <thead class="tableNew">
+        <tr>
+            <th>
+                Имя клиента
+            </th>
+            <th>
+                Номер телефона
+            </th>
+                <th>
+                Дата посещения
+            </th>
+               <th>
+                Перенести
+            </th>
+        </tr>
+        </thead>
+    <tbody>
+        @foreach (var order in Model.Clients)
+        {
+            <tr>
+                <td>
+                    @order.ClientName
+                </td>
+                <td>
+                    @order.PhoneNumber
+                </td>
+                <td>
+                    @order.VisitDate
+                  </td>
+                     <td>
+                      <a class="btn btn-dark"asp-area="" asp-page="/NailOrder/Create">Готов</a>
+                      </td>
+            </tr>
+
+        }
+
+    </tbody>
+    </table>

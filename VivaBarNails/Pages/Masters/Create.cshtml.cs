@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using VivaBarNails.Data;
 using VivaBarNails.Models;
 
-namespace VivaBarNails.Pages.NailOrder
+namespace VivaBarNails.Pages.Masters
 {
     public class CreateModel : PageModel
     {
@@ -17,13 +17,13 @@ namespace VivaBarNails.Pages.NailOrder
             return Page();
         }
         [BindProperty]
-        public Client Client { get; set; }
+       public NailMaster Master { get; set; }
         public async Task<IActionResult> OnPostAsync()
         {
-            _context.Clients.Add(Client);
+            _context.NailMasters.Add(Master);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Confirmed");
+            return RedirectToPage("/AllMasters");
         }
     }
 }

@@ -1,0 +1,32 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Добавить мастера</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Master.MasterName" class="control-label">Имя мастера</label>
+                <input asp-for="Master.MasterName" class="form-control" />
+                <span asp-validation-for="Master.MasterName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Master.Picture" class="control-label">Фото мастера</label>
+                <input asp-for="Master.Picture" class="form-control" />
+                <span asp-validation-for="Master.Picture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Записаться" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -24,3 +24,8 @@ body {
 .marginIndex {
     margin-top: 8%;
 }
+.tableNew {
+    background-color: #292b2c;
+    color: white;
+    border-bottom: 2px solid #999;
+}
