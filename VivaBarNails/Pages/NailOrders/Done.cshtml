@@ -1,10 +1,37 @@
 ﻿@page
-@model IndexModel
+@model DoneModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Create";
 }
 
 <div class="text-center">
-       <p>Запись создана.</p>
-    <p>В ближайшее время с Вами свяжется менеджер для подтверждения.</p>
+
+<h4 style="text-align:center">Добавить Работу</h4>
+    </div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <p>Имя клиента: @Model.Client.ClientName</p>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NailOrder.NailName" class="control-label">Название работы</label>
+                <input asp-for="NailOrder.NailName" class="form-control" />
+                <span asp-validation-for="NailOrder.NailName" class="text-danger"></span>
+            </div>
+                     <div class="form-group">
+                <label asp-for="NailOrder.Img" class="control-label">Фото работы</label>
+                <input asp-for="NailOrder.Img" class="form-control" />
+                <span asp-validation-for="NailOrder.Img" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Добавить Работу" class="btn btn-dark" />
+            </div>
+        </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
 </div>
