@@ -19,5 +19,6 @@ namespace VivaBarNails.Pages.NailOrders
         {
             Clients = _context.Clients.ToList();
         }
+
     }
 }

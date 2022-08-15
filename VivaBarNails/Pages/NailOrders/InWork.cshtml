@@ -38,6 +38,10 @@
                      <td>
                      <a class="btn btn-dark"asp-page="./Done" asp-route-id="@order.Id">Готов</a>
                       </td>
+                      <td>
+                           <a class="btn btn-dark" asp-page="/Clients/DeleteClient" asp-route-id="@order.Id">Удалить</a>
+                      </td>
+                              
             </tr>
 
         }

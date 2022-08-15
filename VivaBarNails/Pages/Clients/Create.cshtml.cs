@@ -25,5 +25,6 @@ namespace VivaBarNails.Pages.Clients
 
             return RedirectToPage("./Confirmed");
         }
+
     }
 }
