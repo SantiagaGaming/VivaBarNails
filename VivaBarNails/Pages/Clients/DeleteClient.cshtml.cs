@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using VivaBarNails.Data;
@@ -5,6 +6,7 @@ using VivaBarNails.Models;
 
 namespace VivaBarNails.Pages.Clients
 {
+    [Authorize(Roles = "AdminRole")]
     public class DeleteClientModel : PageModel
     {
         private ApplicationDbContext _context;

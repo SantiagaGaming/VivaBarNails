@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using VivaBarNails.Data;
 using VivaBarNails.Models;
 
 namespace VivaBarNails.Pages.NailOrders
 {
+    [Authorize(Roles = "AdminRole, ManagerRole")]
     public class InWorkModel : PageModel
     {
         private ApplicationDbContext _context;

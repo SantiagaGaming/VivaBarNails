@@ -7,6 +7,7 @@ using VivaBarNails.Models;
 
 namespace VivaBarNails.Pages.Masters
 {
+    [Authorize(Roles = "AdminRole")]
     public class CreateModel : PageModel
     {
         private ApplicationDbContext _context;

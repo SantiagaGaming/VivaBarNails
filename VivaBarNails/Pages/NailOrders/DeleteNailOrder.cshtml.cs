@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using VivaBarNails.Data;
@@ -5,8 +6,10 @@ using VivaBarNails.Models;
 
 namespace VivaBarNails.Pages.NailOrders
 {
+    [Authorize(Roles = "AdminRole")]
     public class DeleteNailOrderModel : PageModel
     {
+
         private ApplicationDbContext _context;
         private NailOrder _nailOrder;
         public DeleteNailOrderModel(ApplicationDbContext context)
