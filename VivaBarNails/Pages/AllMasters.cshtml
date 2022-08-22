@@ -10,9 +10,14 @@
     <div class="col-md-4">
       <h5 class="card-title">@item.MasterName</h5>
        <img class="card-img-top masterImage" src="@item.Picture" alt="Card image cap">
-             <div class="card-footer">
-         <a class="btn btn-dark" style="position: relative; top: 3px" asp-page="/Masters/DeleteMaster" asp-route-id="@item.Id">Удалить</a>
-          </div>
+           
+                      @if (ViewContext.HttpContext.User.IsInRole("AdminRole"))
+                      {  <div class="card-footer">
+                            <a class="btn btn-dark" style="position: relative; top: 3px" asp-page="/Masters/DeleteMaster" asp-route-id="@item.Id">Удалить</a>
+                                 </div>
+                      }
+       
+     
        </div>
 }
 </div>
