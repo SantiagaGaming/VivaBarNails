@@ -6,7 +6,7 @@ using VivaBarNails.Models;
 
 namespace VivaBarNails.Pages.NailOrders
 {
-    [Authorize(Roles = "AdminRole, ManagerRole")]
+    [Authorize]
     public class InWorkModel : PageModel
     {
         private ApplicationDbContext _context;

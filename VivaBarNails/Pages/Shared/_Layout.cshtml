@@ -31,7 +31,7 @@
                                  <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Контакты</a>
                         </li>
-                        @if (ViewContext.HttpContext.User.IsInRole("AdminRole") ||ViewContext.HttpContext.User.IsInRole("ManagerRole"))
+                        @if (ViewContext.HttpContext.User.Identity.IsAuthenticated)
 {
                      <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/NailOrders/InWork">Записи</a>
