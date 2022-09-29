@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using VivaBarNails.Authorization;
 using VivaBarNails.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +16,19 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
         .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
-
+builder.Services.AddSingleton<IAuthorizationHandler, AdminAuthorizationHandler>();
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<ApplicationDbContext>();
+    context.Database.Migrate();
+
+    //var seedUserPass = builder.Configuration.GetValue<string>("SeedUserPass");
+
+    await SeedData.Initialize(services, "Test@demo1");
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
